@@ -1,3 +1,22 @@
+"""
+Compare GRPO / GiGPO / GraphGPO advantage computations on the same task.
+
+Generates per-task and per-trajectory visualizations as PDF files in a
+vis_<uid8>/ directory.
+
+Usage:
+    # Interactive — pick a task from a menu
+    python -m recipe.GraphGPO.compare_advantages <path_to_pth_file>
+
+    # Non-interactive — specify task by index or full UID
+    python -m recipe.GraphGPO.compare_advantages <path_to_pth_file> 0
+    python -m recipe.GraphGPO.compare_advantages <path_to_pth_file> <uid>
+
+The .pth file must be a DataProto saved with torch.save(dataproto.__dict__, path).
+It needs the following non_tensor_batch fields:
+    uid, traj_uid, anchor_obs, next_obs, episode_rewards, token_level_rewards,
+    response_mask, step_rewards (optional — will be recomputed if missing).
+"""
 import sys
 import os
 import shutil

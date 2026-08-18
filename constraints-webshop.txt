@@ -1,0 +1,7 @@
+torch==2.6.0
+transformers==4.51.1
+tokenizers<0.22
+numpy==1.26.4
+ray==2.50.0
+vllm==0.8.3
+xgrammar==0.1.17
